@@ -1,0 +1,732 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Services - Clinton Oh | Empowering Entrepreneurs Through Strategic Innovation</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            line-height: 1.6;
+            color: #334155;
+            background-color: #FFFFFF;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        header {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+            transition: all 0.3s ease;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 0;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 800;
+            color: #2563EB;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: #334155;
+            font-weight: 500;
+            transition: color 0.3s ease;
+            position: relative;
+        }
+
+        .nav-links a:hover {
+            color: #2563EB;
+        }
+
+        .nav-links a.active {
+            color: #2563EB;
+        }
+
+        .nav-links a.active::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background: #F59E0B;
+            border-radius: 1px;
+        }
+
+        .mobile-menu {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+        }
+
+        .mobile-menu span {
+            width: 25px;
+            height: 3px;
+            background: #334155;
+            margin: 3px 0;
+            transition: 0.3s;
+        }
+
+        main {
+            margin-top: 80px;
+        }
+
+        .hero-section {
+            background: linear-gradient(135deg, #2563EB 0%, #1E293B 100%);
+            color: white;
+            padding: 100px 0;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 100" fill="%23F59E0B" opacity="0.1"><polygon points="0,0 1000,100 1000,0"/></svg>');
+            background-size: cover;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            animation: fadeInUp 1s ease-out;
+        }
+
+        .hero-content h1 {
+            font-size: 3.5rem;
+            font-weight: 800;
+            margin-bottom: 1rem;
+            background: linear-gradient(45deg, #FFFFFF, #F59E0B);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero-content p {
+            font-size: 1.3rem;
+            opacity: 0.9;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .services-overview {
+            padding: 100px 0;
+            background: #FFFFFF;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 80px;
+        }
+
+        .section-header h2 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: #1E293B;
+            margin-bottom: 1rem;
+        }
+
+        .section-header p {
+            font-size: 1.2rem;
+            color: #64748B;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 40px;
+            margin-bottom: 80px;
+        }
+
+        .service-card {
+            background: white;
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+            border: 2px solid transparent;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .service-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, #2563EB, #F59E0B);
+            transform: scaleX(0);
+            transition: transform 0.3s ease;
+        }
+
+        .service-card:hover::before {
+            transform: scaleX(1);
+        }
+
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 60px rgba(37, 99, 235, 0.15);
+            border-color: #2563EB;
+        }
+
+        .service-icon {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, #2563EB, #F59E0B);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 30px;
+            font-size: 2rem;
+            color: white;
+        }
+
+        .service-card h3 {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #1E293B;
+            margin-bottom: 15px;
+        }
+
+        .service-card p {
+            color: #64748B;
+            margin-bottom: 20px;
+            line-height: 1.7;
+        }
+
+        .service-features {
+            list-style: none;
+            margin-bottom: 30px;
+        }
+
+        .service-features li {
+            padding: 8px 0;
+            position: relative;
+            padding-left: 25px;
+            color: #334155;
+        }
+
+        .service-features li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: #F59E0B;
+            font-weight: bold;
+        }
+
+        .service-price {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: #2563EB;
+            margin-bottom: 20px;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 12px 30px;
+            background: linear-gradient(135deg, #2563EB, #1E40AF);
+            color: white;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+        }
+
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(37, 99, 235, 0.3);
+        }
+
+        .btn-outline {
+            background: transparent;
+            border: 2px solid #2563EB;
+            color: #2563EB;
+        }
+
+        .btn-outline:hover {
+            background: #2563EB;
+            color: white;
+        }
+
+        .process-section {
+            padding: 100px 0;
+            background: linear-gradient(135deg, #F8FAFC 0%, #E2E8F0 100%);
+        }
+
+        .process-steps {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-top: 60px;
+        }
+
+        .process-step {
+            text-align: center;
+            position: relative;
+        }
+
+        .step-number {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, #2563EB, #F59E0B);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            font-weight: bold;
+            margin: 0 auto 20px;
+        }
+
+        .process-step h4 {
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: #1E293B;
+            margin-bottom: 15px;
+        }
+
+        .process-step p {
+            color: #64748B;
+        }
+
+        .testimonial-section {
+            padding: 100px 0;
+            background: #FFFFFF;
+        }
+
+        .testimonials {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+            margin-top: 60px;
+        }
+
+        .testimonial {
+            background: white;
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.08);
+            position: relative;
+        }
+
+        .testimonial::before {
+            content: '"';
+            font-size: 4rem;
+            color: #F59E0B;
+            position: absolute;
+            top: 10px;
+            left: 20px;
+            font-family: Georgia, serif;
+        }
+
+        .testimonial-content {
+            margin-top: 30px;
+        }
+
+        .testimonial p {
+            font-style: italic;
+            margin-bottom: 20px;
+            color: #334155;
+        }
+
+        .testimonial-author {
+            font-weight: 600;
+            color: #2563EB;
+        }
+
+        .cta-section {
+            padding: 100px 0;
+            background: linear-gradient(135deg, #1E293B 0%, #2563EB 100%);
+            color: white;
+            text-align: center;
+        }
+
+        .cta-section h2 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+        }
+
+        .cta-section p {
+            font-size: 1.2rem;
+            margin-bottom: 40px;
+            opacity: 0.9;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        footer {
+            background: #1E293B;
+            color: white;
+            text-align: center;
+            padding: 40px 0;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .fade-in {
+            animation: fadeInUp 0.8s ease-out;
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+
+            .mobile-menu {
+                display: flex;
+            }
+
+            .hero-content h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero-content p {
+                font-size: 1.1rem;
+            }
+
+            .services-grid {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+
+            .service-card {
+                padding: 30px;
+            }
+
+            .cta-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .section-header h2 {
+                font-size: 2rem;
+            }
+
+            .process-steps {
+                grid-template-columns: 1fr;
+            }
+
+            .testimonials {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav class="container">
+            <a href="index.html" class="logo">Clinton Oh</a>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="services.html" class="active">Services</a></li>
+                <li><a href="contact.html">Contact</a></li>
+                <li><a href="portfolio.html">Portfolio</a></li>
+                <li><a href="insights.html">Insights</a></li>
+                <li><a href="speaking.html">Speaking</a></li>
+            </ul>
+            <div class="mobile-menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <section class="hero-section">
+            <div class="container">
+                <div class="hero-content">
+                    <h1>Strategic Services</h1>
+                    <p>Comprehensive solutions designed to accelerate your entrepreneurial journey and drive sustainable growth through innovative strategies.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="services-overview">
+            <div class="container">
+                <div class="section-header fade-in">
+                    <h2>Transform Your Business</h2>
+                    <p>From strategic planning to execution, I offer tailored services that address every aspect of your entrepreneurial needs.</p>
+                </div>
+
+                <div class="services-grid">
+                    <div class="service-card fade-in">
+                        <div class="service-icon">🚀</div>
+                        <h3>Strategic Business Consulting</h3>
+                        <p>Comprehensive business strategy development, market analysis, and growth planning to position your venture for success.</p>
+                        <ul class="service-features">
+                            <li>Business model optimization</li>
+                            <li>Market opportunity analysis</li>
+                            <li>Competitive positioning</li>
+                            <li>Growth strategy development</li>
+                            <li>Performance metrics setup</li>
+                        </ul>
+                        <div class="service-price">Starting at $2,500</div>
+                        <a href="contact.html" class="btn">Get Started</a>
+                    </div>
+
+                    <div class="service-card fade-in">
+                        <div class="service-icon">💡</div>
+                        <h3>Innovation Workshops</h3>
+                        <p>Interactive sessions designed to unlock creative potential and foster innovative thinking within your team.</p>
+                        <ul class="service-features">
+                            <li>Design thinking sessions</li>
+                            <li>Ideation workshops</li>
+                            <li>Innovation framework development</li>
+                            <li>Creative problem solving</li>
+                            <li>Team collaboration enhancement</li>
+                        </ul>
+                        <div class="service-price">$1,200/session</div>
+                        <a href="contact.html" class="btn">Book Workshop</a>
+                    </div>
+
+                    <div class="service-card fade-in">
+                        <div class="service-icon">📊</div>
+                        <h3>Executive Coaching</h3>
+                        <p>One-on-one mentorship to develop leadership skills, strategic thinking, and entrepreneurial mindset.</p>
+                        <ul class="service-features">
+                            <li>Leadership development</li>
+                            <li>Decision-making enhancement</li>
+                            <li>Strategic thinking skills</li>
+                            <li>Personal brand building</li>
+                            <li>Goal setting & accountability</li>
+                        </ul>
+                        <div class="service-price">$500/hour</div>
+                        <a href="contact.html" class="btn">Start Coaching</a>
+                    </div>
+
+                    <div class="service-card fade-in">
+                        <div class="service-icon">🎯</div>
+                        <h3>Digital Transformation</h3>
+                        <p>Guide your business through digital evolution with strategic technology implementation and process optimization.</p>
+                        <ul class="service-features">
+                            <li>Digital strategy development</li>
+                            <li>Technology roadmap</li>
+                            <li>Process automation</li>
+                            <li>Digital marketing strategy</li>
+                            <li>Data analytics setup</li>
+                        </ul>
+                        <div class="service-price">Starting at $3,500</div>
+                        <a href="contact.html" class="btn">Transform Now</a>
+                    </div>
+
+                    <div class="service-card fade-in">
+                        <div class="service-icon">🌟</div>
+                        <h3>Startup Accelerator Program</h3>
+                        <p>Intensive 12-week program for early-stage startups, providing mentorship, resources, and investor connections.</p>
+                        <ul class="service-features">
+                            <li>Weekly mentorship sessions</li>
+                            <li>Investor pitch preparation</li>
+                            <li>Business plan refinement</li>
+                            <li>Network access</li>
+                            <li>Go-to-market strategy</li>
+                        </ul>
+                        <div class="service-price">$5,000/program</div>
+                        <a href="contact.html" class="btn">Apply Now</a>
+                    </div>
+
+                    <div class="service-card fade-in">
+                        <div class="service-icon">🔄</div>
+                        <h3>Business Process Optimization</h3>
+                        <p>Streamline operations, improve efficiency, and reduce costs through systematic process improvement initiatives.</p>
+                        <ul class="service-features">
+                            <li>Process mapping & analysis</li>
+                            <li>Workflow optimization</li>
+                            <li>Quality improvement</li>
+                            <li>Cost reduction strategies</li>
+                            <li>Performance measurement</li>
+                        </ul>
+                        <div class="service-price">Starting at $2,000</div>
+                        <a href="contact.html" class="btn">Optimize Now</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="process-section">
+            <div class="container">
+                <div class="section-header">
+                    <h2>My Strategic Process</h2>
+                    <p>A proven methodology that ensures maximum impact and sustainable results for every engagement.</p>
+                </div>
+
+                <div class="process-steps">
+                    <div class="process-step fade-in">
+                        <div class="step-number">1</div>
+                        <h4>Discovery & Assessment</h4>
+                        <p>Deep dive into your business, challenges, and opportunities to understand the complete landscape.</p>
+                    </div>
+
+                    <div class="process-step fade-in">
+                        <div class="step-number">2</div>
+                        <h4>Strategy Development</h4>
+                        <p>Create customized strategies aligned with your goals, resources, and market conditions.</p>
+                    </div>
+
+                    <div class="process-step fade-in">
+                        <div class="step-number">3</div>
+                        <h4>Implementation Planning</h4>
+                        <p>Develop detailed action plans with timelines, resources, and success metrics clearly defined.</p>
+                    </div>
+
+                    <div class="process-step fade-in">
+                        <div class="step-number">4</div>
+                        <h4>Execution Support</h4>
+                        <p>Provide ongoing guidance and support throughout the implementation phase to ensure success.</p>
+                    </div>
+
+                    <div class="process-step fade-in">
+                        <div class="step-number">5</div>
+                        <h4>Monitor & Optimize</h4>
+                        <p>Track progress, measure results, and continuously refine strategies for optimal performance.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="testimonial-section">
+            <div class="container">
+                <div class="section-header">
+                    <h2>Client Success Stories</h2>
+                    <p>See how strategic innovation has transformed businesses and empowered entrepreneurs to achieve remarkable results.</p>
+                </div>
+
+                <div class="testimonials">
+                    <div class="testimonial fade-in">
+                        <div class="testimonial-content">
+                            <p>Clinton's strategic insight helped us pivot our business model and increase revenue by 300% within six months. His innovative approach is exactly what growing companies need.</p>
+                            <div class="testimonial-author">Sarah Chen, CEO of TechStart</div>
+                        </div>
+                    </div>
+
+                    <div class="testimonial fade-in">
+                        <div class="testimonial-content">
+                            <p>The executive coaching program transformed my leadership style and decision-making process. Clinton's guidance was instrumental in our successful Series A funding.</p>
+                            <div class="testimonial-author">Marcus Rodriguez, Founder of InnovateLab</div>
+                        </div>
+                    </div>
+
+                    <div class="testimonial fade-in">
+                        <div class="testimonial-content">
+                            <p>Our digital transformation initiative exceeded all expectations. Clinton's strategic framework helped us modernize operations while maintaining our core values.</p>
+                            <div class="testimonial-author">Jennifer Thompson, Operations Director</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="cta-section">
+            <div class="container">
+                <h2>Ready to Transform Your Business?</h2>
+                <p>Let's discuss how strategic innovation can accelerate your entrepreneurial journey and drive sustainable growth.</p>
+                <div class="cta-buttons">
+                    <a href="contact.html" class="btn">Schedule Consultation</a>
+                    <a href="portfolio.html" class="btn btn-outline">View Success Stories</a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 Clinton Oh. Empowering Entrepreneurs Through Strategic Innovation. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Add scroll effects
+        window.addEventListener('scroll', () => {
+            const header = document.querySelector('header');
+            if (window.scrollY > 100) {
+                header.style.background = 'rgba(255, 255, 255, 0.98)';
+                header.style.boxShadow = '0 2px 20px rgba(0, 0, 0, 0.1)';
+            } else {
+                header.style.background = 'rgba(255, 255, 255, 0.95)';
+                header.style.boxShadow = 'none';
+            }
+        });
+
+        // Intersection Observer for animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        // Observe all fade-in elements
+        document.querySelectorAll('.fade-in, .service-card, .process-step, .testimonial').forEach(el => {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(20px)';
+            el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+            observer.observe(el);
+        });
+    </script>
+</body>
+</html>
